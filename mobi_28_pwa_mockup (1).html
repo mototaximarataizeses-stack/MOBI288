@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mobi28 — Mobilidade Inteligente</title>
+
+  <!-- SEO / Social -->
+  <meta name="description" content="Mobi28 é o aplicativo de mobilidade do Sul do Espírito Santo. Corridas rápidas, seguras e com preço justo em Marataízes, Itapemirim, Piúma, Itaoca, Itaipava e Presidente Kennedy." />
+  <meta name="keywords" content="Mobi28, aplicativo de mobilidade, Marataízes, Itapemirim, Piúma, transporte por app ES, corrida por app" />
+  <meta name="author" content="Mobi28" />
+  <meta property="og:title" content="Mobi28 — Mobilidade Inteligente" />
+  <meta property="og:description" content="Peça sua corrida com motoristas locais. Rápido, seguro e justo." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.seusite.com/og-mobi28.jpg" />
+  <meta property="og:url" content="https://www.seusite.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#07070a;
+      --ink:#eaeaf0;
+      --muted:#b7b7c3;
+      --brand:#ffd000;           /* amarelo ouro */
+      --brand-2:#ffb100;         /* dourado */
+      --surface:#0d0d12;         /* painéis escuros */
+      --glass:#0f1118cc;         /* vidro */
+      --line:#21222b;
+      --radius-xl:26px;
+      --radius-lg:18px;
+      --shadow-1: 0 10px 30px rgba(0,0,0,.35);
+      --shadow-2: 0 30px 80px rgba(0,0,0,.6);
+    }
+
+    /* Reset */
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif; color:var(--ink); background:var(--bg); line-height:1.6; overflow-x:hidden}
+    img{max-width:100%; display:block}
+    a{color:inherit; text-decoration:none}
+    .container{width:min(1200px,92%); margin-inline:auto}
+
+    /* Header futurista */
+    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(160%) blur(12px); background:linear-gradient(180deg, rgba(7,7,10,.8), rgba(7,7,10,.35)); border-bottom:1px solid #14141a}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .brand{display:flex; align-items:center; gap:12px; font-weight:900; letter-spacing:.2px}
+    .badge{width:40px; height:40px; border-radius:12px; display:grid; place-items:center; font-weight:900; background:radial-gradient(circle at 30% 30%, var(--brand), var(--brand-2)); color:#111; box-shadow:0 0 0 6px rgba(255,208,0,.15), var(--shadow-1)}
+    .menu{display:flex; gap:22px; align-items:center}
+    .btn{display:inline-flex; gap:10px; align-items:center; padding:12px 18px; border-radius:999px; border:1px solid var(--line); background:#11131a; font-weight:700; position:relative; overflow:hidden}
+    .btn::after{content:""; position:absolute; inset:0; background:linear-gradient(120deg, transparent, rgba(255,255,255,.08), transparent); transform:translateX(-120%);}
+    .btn:hover::after{animation:sweep 1.2s ease}
+    .btn.primary{background:linear-gradient(180deg, var(--brand), var(--brand-2)); color:#111; border-color:#000}
+    @keyframes sweep{to{transform:translateX(120%)}}
+
+    /* HERO premium & futurista */
+    .hero{position:relative; isolation:isolate}
+    .hero-canvas{position:absolute; inset:0; z-index:-2}
+    .gradient-aurora{position:absolute; inset:-20% -10% -10% -10%; z-index:-3; filter:blur(120px); opacity:.75; background:conic-gradient(from 180deg, rgba(255,208,0,.18), rgba(255,177,0,.12), rgba(255,208,0,.24), rgba(255,208,0,.14)); animation:rotate 30s linear infinite}
+    @keyframes rotate{to{transform:rotate(1turn)}}
+
+    .hero .pad{padding:90px 0 120px}
+    .hero-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:46px; align-items:center}
+    .kicker{display:inline-flex; gap:8px; align-items:center; padding:6px 12px; border:1px solid #222531; border-radius:999px; background:rgba(17,18,26,.6); color:#c8c8d2; font-size:12px}
+    .title{font-size:clamp(36px,5vw,64px); line-height:1.05; margin:16px 0 12px; font-weight:900; letter-spacing:-.02em}
+    .subtitle{font-size:clamp(16px,2vw,20px); color:#cfd0da; max-width:64ch}
+    .badges{display:flex; gap:12px; flex-wrap:wrap; margin-top:26px}
+    .chip{padding:10px 14px; border-radius:14px; border:1px solid #242636; background:rgba(18,20,30,.65)}
+
+    /* Phone mock (glassmorphism) */
+    .phone{max-width:380px; margin:auto; border-radius:34px; border:1px solid #2b2e3e; background:linear-gradient(180deg, #121422, #0b0d14); box-shadow:var(--shadow-2); overflow:hidden; position:relative}
+    .status{display:flex; justify-content:space-between; padding:10px 14px; font-size:12px; color:#cfd0da; background:linear-gradient(180deg, #141627, #0e111c); border-bottom:1px solid #202337}
+    .screen{height:520px; position:relative; background:radial-gradient(900px 400px at 10% 10%, rgba(255,208,0,.08), transparent), radial-gradient(900px 400px at 90% 90%, rgba(255,177,0,.06), transparent), #0c0f18}
+    .pin{position:absolute; left:50%; top:46%; transform:translate(-50%,-50%); width:18px; height:18px; border-radius:50%; background:var(--brand); box-shadow:0 0 0 6px rgba(255,208,0,.22)}
+    .panel{position:absolute; left:12px; right:12px; bottom:12px; padding:12px; border-radius:18px; background:rgba(18,20,28,.6); border:1px solid #2a2d3e; backdrop-filter:blur(10px)}
+    .panel .row{display:flex; justify-content:space-between; align-items:center; font-size:13px; color:#d7d8e1; margin:6px 0}
+
+    /* Sections */
+    section{padding:96px 0; border-top:1px solid #14151c}
+    h2.section-title{font-size:clamp(28px,4vw,44px); margin:0 0 12px; font-weight:900}
+    p.lead{color:#cfd0da; max-width:70ch}
+
+    .grid{display:grid; gap:22px}
+    .cols-3{grid-template-columns:repeat(3,1fr)}
+    .cols-4{grid-template-columns:repeat(4,1fr)}
+    .card{background:linear-gradient(180deg, rgba(18,20,28,.65), rgba(12,14,20,.65)); border:1px solid #24273a; border-radius:var(--radius-xl); padding:24px; box-shadow:var(--shadow-1); backdrop-filter: blur(8px)}
+
+    .feature{display:flex; gap:14px}
+    .icon{width:44px; height:44px; border-radius:14px; display:grid; place-items:center; border:1px solid #2a2d3e; background:rgba(17,19,27,.8)}
+    .feature h3{margin:6px 0 6px; font-size:18px}
+    .feature p{margin:0; color:#b9bbca}
+
+    /* Driver form */
+    .form{display:grid; gap:14px}
+    .field{display:grid; gap:6px}
+    .field input,.field select,.field textarea{background:rgba(17,19,27,.8); color:#fff; border:1px solid #292c3e; border-radius:14px; padding:12px}
+    .note{font-size:12px; color:#a8a9b6}
+
+    /* Testimonials carousel */
+    .carousel{position:relative; overflow:hidden}
+    .track{display:flex; gap:18px; transition:transform .6s ease}
+    .testimonial{min-width:calc(50% - 9px); border:1px solid #24273a; border-radius:20px; padding:20px; background:rgba(15,17,25,.8); backdrop-filter: blur(8px)}
+    .author{display:flex; gap:10px; align-items:center; color:#cfd0da; margin-top:10px}
+
+    /* FAQ */
+    .faq-item{border:1px solid #24273a; border-radius:18px; background:rgba(15,17,25,.8)}
+    .faq-q{width:100%; text-align:left; background:transparent; border:none; padding:18px; font-weight:700; display:flex; justify-content:space-between; align-items:center}
+    .faq-a{display:none; padding:0 18px 18px; color:#cfd0da}
+    .faq-item.open .faq-a{display:block}
+
+    /* Footer */
+    footer{border-top:1px solid #14151c; background:#08090e}
+    .foot{display:grid; gap:18px; padding:32px 0; color:#bfc0cc}
+    .cities{display:flex; flex-wrap:wrap; gap:10px}
+    .city{background:rgba(17,19,27,.8); border:1px solid #202335; padding:8px 12px; border-radius:999px}
+
+    /* Reveal */
+    .reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease}
+    .reveal.in{opacity:1; transform:none}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr; gap:28px}
+      .testimonial{min-width:100%}
+      .cols-3{grid-template-columns:1fr}
+      .cols-4{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 560px){
+      .menu{gap:12px}
+      .cols-4{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand"><div class="badge">28</div> <span>Mobi28</span></div>
+      <nav class="menu">
+        <a href="#como">Como funciona</a>
+        <a href="#motorista">Seja motorista</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn primary" href="#download" aria-label="Baixar o app">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Baixar app
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Apresentação">
+    <canvas class="hero-canvas" id="heroFx"></canvas>
+    <div class="gradient-aurora" aria-hidden="true"></div>
+    <div class="container pad">
+      <div class="hero-grid">
+        <div>
+          <span class="kicker">Mobilidade local • ES</span>
+          <h1 class="title">Mobilidade rápida, local e <span style="color:var(--brand)">confiável</span></h1>
+          <p class="subtitle">De Marataízes para o mundo: a Mobi28 te leva com segurança, conforto e preço justo para onde você precisar.</p>
+          <div class="badges" role="list">
+            <span class="chip" role="listitem">⚡ Estimativa instantânea</span>
+            <span class="chip" role="listitem">🛡️ Motoristas verificados</span>
+            <span class="chip" role="listitem">💳 Pix, cartão ou dinheiro</span>
+          </div>
+          <div id="download" style="display:flex; gap:14px; flex-wrap:wrap; margin-top:26px">
+            <a class="btn primary" href="#">Google Play</a>
+            <a class="btn" href="#">App Store</a>
+          </div>
+        </div>
+        <div>
+          <div class="phone" aria-label="Mock do app">
+            <div class="status"><span>09:28</span><span>LTE • 100%</span></div>
+            <div class="screen">
+              <div class="pin" aria-hidden="true"></div>
+              <div class="panel">
+                <div class="row"><strong>Destino</strong><span>Praia Central</span></div>
+                <div class="row"><span>Estimativa</span><strong>R$ 14,90 • 6 min</strong></div>
+                <div class="row" style="gap:10px">
+                  <a class="btn primary" href="#" style="padding:10px 14px">Chamar agora</a>
+                  <span class="chip">Agendar</span>
+                  <span class="chip">Compartilhar</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section id="como">
+    <div class="container">
+      <h2 class="section-title reveal">Como funciona</h2>
+      <p class="lead reveal">Em quatro passos, você sai do ponto A ao B com total transparência.</p>
+      <div class="grid cols-4" style="margin-top:24px">
+        <div class="card feature reveal"><div class="icon">📍</div><div><h3>Defina a rota</h3><p>Escolha origem e destino e veja o valor na hora.</p></div></div>
+        <div class="card feature reveal"><div class="icon">🚗</div><div><h3>Motorista próximo</h3><p>Algoritmo local prioriza quem está mais perto.</p></div></div>
+        <div class="card feature reveal"><div class="icon">🔒</div><div><h3>Segurança</h3><p>Motoristas verificados e avaliação dupla.</p></div></div>
+        <div class="card feature reveal"><div class="icon">💳</div><div><h3>Pagamento</h3><p>Pix, cartão ou dinheiro — sem fricção.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOTORISTA -->
+  <section id="motorista">
+    <div class="container">
+      <div class="grid" style="grid-template-columns:1.1fr .9fr; gap:22px">
+        <div class="card reveal">
+          <h2 class="section-title">Seja motorista Mobi28</h2>
+          <p class="lead">Ganhe mais com taxas justas, corridas frequentes e respeito ao profissional local.</p>
+          <form class="form" id="driverForm" novalidate>
+            <div class="field"><label for="nome">Nome completo</label><input id="nome" name="nome" required placeholder="Seu nome" /></div>
+            <div class="field"><label for="tel">WhatsApp</label><input id="tel" name="tel" required inputmode="tel" placeholder="(27) 9 9999-9999" /></div>
+            <div class="field"><label for="cidade">Cidade</label>
+              <select id="cidade" name="cidade" required>
+                <option value="">Selecione</option>
+                <option>Marataízes</option>
+                <option>Itapemirim</option>
+                <option>Piúma</option>
+                <option>Itaoca</option>
+                <option>Itaipava</option>
+                <option>Presidente Kennedy</option>
+              </select>
+            </div>
+            <div class="field"><label for="obs">Observações (opcional)</label><textarea id="obs" name="obs" rows="3" placeholder="Ex: carro, horários…"></textarea></div>
+            <button class="btn primary" type="submit">Quero me cadastrar</button>
+            <span class="note" id="formNote">Resposta em até 1 dia útil via WhatsApp.</span>
+          </form>
+        </div>
+        <div class="card reveal" aria-hidden="true" style="display:grid; place-items:center; min-height:340px">
+          <div style="text-align:center">
+            <div style="font-size:54px">🏁</div>
+            <h3 style="margin:10px 0 6px">Mais corridas, mais ganhos</h3>
+            <p style="color:#b9bbca; max-width:44ch; margin:0 auto">Taxa menor que os apps grandes, prioridade local e campanhas de incentivo na alta temporada.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section>
+    <div class="container">
+      <h2 class="section-title reveal">O que falam do Mobi28</h2>
+      <div class="carousel card reveal">
+        <div class="track" id="track">
+          <div class="testimonial"><p>“Muito mais rápido que esperar Uber. Em Marataízes eu só chamo Mobi28.”</p><div class="author"><span>👤</span> Ana — Passageira</div></div>
+          <div class="testimonial"><p>“As taxas são melhores e o suporte resolve de verdade. Sobra mais no fim do dia.”</p><div class="author"><span>👤</span> João — Motorista</div></div>
+          <div class="testimonial"><p>“App leve e pagamento por Pix sem dor de cabeça. Recomendo!”</p><div class="author"><span>👤</span> Ricardo — Passageiro</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <h2 class="section-title reveal">Perguntas frequentes</h2>
+      <div class="grid">
+        <div class="faq-item reveal"><button class="faq-q" aria-expanded="false">Em quais cidades o Mobi28 opera?<span>＋</span></button><div class="faq-a">Marataízes, Itapemirim, Piúma, Itaoca, Itaipava e Presidente Kennedy.</div></div>
+        <div class="faq-item reveal"><button class="faq-q" aria-expanded="false">Quais as formas de pagamento?<span>＋</span></button><div class="faq-a">Pix, cartão e dinheiro no final da corrida.</div></div>
+        <div class="faq-item reveal"><button class="faq-q" aria-expanded="false">É seguro?<span>＋</span></button><div class="faq-a">Sim. Motoristas verificados, avaliação dupla e suporte humano 24h.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container foot">
+      <div class="brand"><div class="badge">28</div><span>Mobi28</span></div>
+      <div class="cities" aria-label="Cidades atendidas">
+        <span class="city"> De Marataízes para o Brasil</span>
+       
+      </div>
+      <div class="note">Suporte: WhatsApp (27) XXXX-XXXX • © 2025 Mobi28</div>
+    </div>
+  </footer>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"MobileApplication",
+    "name":"Mobi28",
+    "operatingSystem":"ANDROID, iOS",
+    "applicationCategory":"TravelApplication",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"BRL"},
+    "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","ratingCount":"245"},
+    "author":{"@type":"Organization","name":"Mobi28"},
+    "areaServed":["Marataízes","Itapemirim","Piúma","Itaoca","Itaipava","Presidente Kennedy"]
+  }
+  </script>
+
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id=a.getAttribute('href').slice(1);
+        const el=document.getElementById(id);
+        if(el){e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'});} });
+    });
+
+    // Reveal on scroll
+    const io=new IntersectionObserver(entries=>{
+      entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+    },{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    // Carousel auto-slide
+    const track=document.getElementById('track');
+    let idx=0; setInterval(()=>{ if(!track) return; const items=track.children.length; idx=(idx+1)%items; const w=track.children[0].getBoundingClientRect().width+18; track.style.transform=`translateX(${-idx*w}px)`; }, 4200);
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-item').forEach(item=>{
+      const q=item.querySelector('.faq-q');
+      q.addEventListener('click',()=>{ const open=item.classList.toggle('open'); q.setAttribute('aria-expanded', open); });
+    });
+
+    // Driver form (mock submit)
+    const form=document.getElementById('driverForm');
+    const note=document.getElementById('formNote');
+    if(form){
+      form.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        if(!form.checkValidity()){ note.textContent='Preencha os campos obrigatórios.'; note.style.color='#ffb100'; return; }
+        const data=Object.fromEntries(new FormData(form).entries());
+        const leads=JSON.parse(localStorage.getItem('mobi28_leads')||'[]');
+        leads.push({...data, ts:new Date().toISOString()});
+        localStorage.setItem('mobi28_leads', JSON.stringify(leads));
+        note.textContent='Recebido! Nossa equipe vai falar com você no WhatsApp.';
+        note.style.color='#12b886';
+        form.reset();
+      });
+    }
+
+    // HERO particles
+    const canvas=document.getElementById('heroFx');
+    const ctx=canvas.getContext('2d');
+    let w,h,parts=[];
+    function resize(){ w=canvas.width=window.innerWidth; const heroH=document.querySelector('.hero').offsetHeight; h=canvas.height=heroH; }
+    function spawn(n=70){ parts=[...Array(n)].map(()=>({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.5,vy:(Math.random()-.5)*.5,r:Math.random()*2+0.7,o:Math.random()*.6+.2})) }
+    function step(){ ctx.clearRect(0,0,w,h); for(const p of parts){ p.x+=p.vx; p.y+=p.vy; if(p.x<0||p.x>w) p.vx*=-1; if(p.y<0||p.y>h) p.vy*=-1; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fillStyle=`rgba(255,208,0,${p.o})`; ctx.fill(); } requestAnimationFrame(step); }
+    resize(); spawn(); step(); window.addEventListener('resize', ()=>{resize(); spawn(parts.length)});
+  </script>
+</body>
+</html>
